@@ -1,7 +1,9 @@
-PDFMiner
-========
+PDFMiner.six
+============
 
-[![Build Status](https://travis-ci.org/euske/pdfminer.svg?branch=master)](https://travis-ci.org/euske/pdfminer)
+PDFMiner.six is a fork of PDFMiner using six for Python 2+3 compatibility
+
+[![Build Status](https://travis-ci.org/pdfminer/pdfminer.six.svg?branch=master)](https://travis-ci.org/pdfminer/pdfminer.six)
 
 PDFMiner is a tool for extracting information from PDF documents.
 Unlike other PDF-related tools, it focuses entirely on getting 
@@ -12,9 +14,9 @@ It includes a PDF converter that can transform PDF files
 into other text formats (such as HTML). It has an extensible
 PDF parser that can be used for other purposes than text analysis.
 
- * Webpage: https://euske.github.io/pdfminer/
- * Download (PyPI): https://pypi.python.org/pypi/pdfminer/
- * Demo WebApp: http://pdf2html.tabesugi.net:8080/
+ * Webpage: https://github.com/pdfminer/
+ * Download (PyPI): https://pypi.python.org/pypi/pdfminer.six/
+ * Demo WebApp: http://pdf2html.tabesugi.net:8080/ (broken?)
 
 
 Features
@@ -34,7 +36,7 @@ Features
 How to Install
 --------------
 
- * Install Python 2.6 or newer. (**Python 3 is not supported.**)
+ * Install Python 2.7 or newer. (Python 3.4 is supported in pdfminer.six)
  * Download the source code.
  * Unpack it.
  * Run `setup.py`:
@@ -44,30 +46,6 @@ How to Install
  * Do the following test:
 
     $ pdf2txt.py samples/simple1.pdf
-
-
-For CJK Languages
------------------
-
-In order to process CJK languages, do the following before
-running setup.py install:
-
-    $ make cmap
-    python tools/conv_cmap.py pdfminer/cmap Adobe-CNS1 cmaprsrc/cid2code_Adobe_CNS1.txt
-    reading 'cmaprsrc/cid2code_Adobe_CNS1.txt'...
-    writing 'CNS1_H.py'...
-    ...
-    $ python setup.py install
-
-On Windows machines which don't have `make` command, 
-paste the following commands on a command line prompt:
-
-    mkdir pdfminer\cmap
-    python tools\conv_cmap.py -c B5=cp950 -c UniCNS-UTF8=utf-8 pdfminer\cmap Adobe-CNS1 cmaprsrc\cid2code_Adobe_CNS1.txt
-    python tools\conv_cmap.py -c GBK-EUC=cp936 -c UniGB-UTF8=utf-8 pdfminer\cmap Adobe-GB1 cmaprsrc\cid2code_Adobe_GB1.txt
-    python tools\conv_cmap.py -c RKSJ=cp932 -c EUC=euc-jp -c UniJIS-UTF8=utf-8 pdfminer\cmap Adobe-Japan1 cmaprsrc\cid2code_Adobe_Japan1.txt
-    python tools\conv_cmap.py -c KSC-EUC=euc-kr -c KSC-Johab=johab -c KSCms-UHC=cp949 -c UniKS-UTF8=utf-8 pdfminer\cmap Adobe-Korea1 cmaprsrc\cid2code_Adobe_Korea1.txt
-    python setup.py install
 
 
 Command Line Tools
@@ -115,9 +93,6 @@ is a list of the changes:
 TODO
 ----
 
- * Replace STRICT variable with something better.
- * Use logging module instead of sys.stderr.
- * Proper test cases.
  * PEP-8 and PEP-257 conformance.
  * Better documentation.
  * Crypt stream filter support.
